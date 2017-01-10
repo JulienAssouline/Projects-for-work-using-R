@@ -67,7 +67,7 @@ team_salaries_1985_2016_1 <- team_salaries_1985_2016
 
 library(data.table)
 
-#unlist the list of list 
+# Unlist the list of list 
 team_salaries_1985_2016_2 <- unlist(team_salaries_1985_2016_1, recursive = FALSE)
 team_salaries_1985_2016_3 <- rbindlist(team_salaries_1985_2016_2)
 is.data.frame(team_salaries_1985_2016_3)
@@ -77,7 +77,7 @@ head(team_salaries_1985_2016_3)
 team_salaries_1985_2016_3$id <- rep(names(team_salaries_1985_2016_2), sapply(team_salaries_1985_2016_2, nrow))
 head(team_salaries_1985_2016_3)
 
-# Cleaning the id column to only be left with the year values, by seperating columns, and rmoving ones I don't want. 
+# Cleaning the id column to only be left with the year values, by seperating columns, and removing ones I don't want. 
 team_salaries_1985_2016_4 <- team_salaries_1985_2016_3 %>% separate(id, c("id", "wtv", "wtv1", "wtv2", "team", "year"), sep = "/")
 
 head(team_salaries_1985_2016_4)
