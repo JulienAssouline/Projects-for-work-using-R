@@ -14,3 +14,6 @@ Baseball attendance analysis & Wins in baseball 1970-2017: http://milwaukee.loca
 Relief Pitcher Velocity: http://www.beyondtheboxscore.com/2016/12/7/13852008/looking-back-at-koji-uehara-s-time-with-the-red-sox
 
 Brewers Difference in PA and WARP 2015-2016: http://milwaukee.locals.baseballprospectus.com/2016/10/13/the-land-of-opportunity/
+
+Cy Young Winners and True best pitchers: http://www.beyondtheboxscore.com/2016/11/25/13711492/cy-young-rick-porcello-chris-sale-clayton-kershaw-jake-arrieta-bbwaa-vote-history-pwarp-dra
+
