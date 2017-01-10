@@ -1,6 +1,7 @@
 # In the document, I analyzed and visualized Position players, Pitchers, and Designated hitter salaries and performance. 
 # I did it in somewhat three sections. First position players, second pitchers, and finally DH. 
 # Every new section starts with ###
+# All the data was gathered at baseball reference.
 
 ### Position players
 
