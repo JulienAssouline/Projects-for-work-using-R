@@ -66,7 +66,7 @@ team_salaries_1985_2016_1 <- team_salaries_1985_2016
 
 library(data.table)
 
-#unlist the list of list data
+#unlist the list of list 
 team_salaries_1985_2016_2 <- unlist(team_salaries_1985_2016_1, recursive = FALSE)
 team_salaries_1985_2016_3 <- rbindlist(team_salaries_1985_2016_2)
 is.data.frame(team_salaries_1985_2016_3)
@@ -111,7 +111,7 @@ str(team_salaries_1985_2016_5)
 team_salaries_1985_2016_6 <- team_salaries_1985_2016_5[team_salaries_1985_2016_5$Salary > 0,]
 head(team_salaries_1985_2016_6)
 
-# Getting rid of "team total" rows
+# Getting rid of "Team Total" rows
 team_salaries_1985_2016_6 <- team_salaries_1985_2016_6[team_salaries_1985_2016_6$Name!="Team Total",]
 
 team_salaries_1985_2016_6 <- transform(team_salaries_1985_2016_6, year= as.numeric(year))
@@ -120,13 +120,13 @@ team_salaries_1985_2016_6 <- transform(team_salaries_1985_2016_6, year= as.numer
 Average_League_salaries_1985_2016 <- team_salaries_1985_2016_6 %>% group_by(year) %>% summarise(Average_Salary = mean(Salary), Median_Salary = median(Salary)) %>% as.data.frame()
 
 # Getting rid of all pitchers 
-team_salaries_1985_2016_7 <- team_salaries_1985_2016_6[team_salaries_1985_2016_6$`Pos Summary`!=1,]
-team_salaries_1985_2016_7 <- team_salaries_1985_2016_7[team_salaries_1985_2016_7$`Pos Summary`!="/1",]
+team_salaries_1985_2016_7 <- team_salaries_1985_2016_6[team_salaries_1985_2016_6$`Pos Summary`!=1,]
+team_salaries_1985_2016_7 <- team_salaries_1985_2016_7[team_salaries_1985_2016_7$`Pos Summary`!="/1",]
 team_salaries_1985_2016_7 <- team_salaries_1985_2016_7[team_salaries_1985_2016_7$Name!="Team Total",]
 
 # Getting the positions most often played. The first position or number in the Pos Summary column is the position most often played
-# First, Seperating values, then getting rid of the / and other symbols
-team_salaries_1985_2016_8 <- separate(team_salaries_1985_2016_7, `Pos Summary`, into = c("Position", "summary"), sep = 2)
+# First, seperating values, then getting rid of the '/' and other symbols
+team_salaries_1985_2016_8 <- separate(team_salaries_1985_2016_7, `Pos Summary`, into = c("Position", "summary"), sep = 2)
 head(team_salaries_1985_2016_8, n = 50)
 
 team_salaries_1985_2016_8$Position <- gsub("/","", team_salaries_1985_2016_8$Position)
@@ -142,7 +142,7 @@ team_salaries_1985_2016_9$Position[team_salaries_1985_2016_9$Position == "D"] <-
 Average_position_salary
 head(team_salaries_1985_2016_9)
 
-# Making culmns numeric
+# Making columns numeric
 team_salaries_1985_2016_9 <- transform(team_salaries_1985_2016_9, year = as.numeric(year),
                                        Position = as.numeric(Position),
                                        WAR = as.numeric(WAR))
@@ -238,7 +238,7 @@ head(team_salaries_pitchers_1985_2016_2)
 team_salaries_pitchers_1985_2016_3 <- team_salaries_pitchers_1985_2016_2[team_salaries_pitchers_1985_2016_2$Salary > 0,]
 head(team_salaries_pitchers_1985_2016_3, n = 50)
 
-# Getting rid of all rows with "Team Team"
+# Getting rid of all rows with "Team Total"
 team_salaries_pitchers_1985_2016_3 <- team_salaries_pitchers_1985_2016_3[team_salaries_pitchers_1985_2016_3$Name!="Team Total",]
 
 # Making some columns numeric
@@ -257,7 +257,7 @@ head(team_salaries_pitchers_1985_2016_3)
 team_salaries_pitchers_1985_2016_3  <- left_join(team_salaries_pitchers_1985_2016_3, Average_League_salaries_1985_2016) 
 head(team_salaries_pitchers_1985_2016_3)
 
-# Creating new column with scaled salary. The Average_League_salaries_1985_2016 dataframe already had the scales, so no need to redue them
+# Creating new column with scaled salary. The Average_League_salaries_1985_2016 dataframe already had the scales, so no need to redo them
 team_salaries_pitchers_1985_2016_3$Scaled_2015_Salary <- team_salaries_pitchers_1985_2016_3$Salary * team_salaries_pitchers_1985_2016_3$scales
 
 head(team_salaries_pitchers_1985_2016_3)
@@ -293,7 +293,7 @@ library(scales)
 # Making positions a factor
 Average_position_salary$Position <- as.factor(Average_position_salary$Position)
 
-# Plotting growth of salaries for all positions (This dataframe is in the hitters section), inlcuding , DH, starting pitcher and relief pitchers. 
+# Plotting growth of salaries for all positions, inlcuding DH, starting pitcher and relief pitchers. 
 p <- ggplot()
 p + geom_line(data = Average_position_salary, aes(x = year, y = Average_Salary, group = Position), colour = "grey", size = 1) +
     geom_line(data = DH, aes(x = year, y = Average_Salary), colour = "purple", size = 1, alpha = 0.7) +
@@ -311,7 +311,7 @@ p + geom_line(data = Average_position_salary, aes(x = year, y = Average_Salary, 
     labs(caption = "Data: Baseball-Reference") +
     theme(plot.margin = unit(c(.5, .5, 1, 1), "lines"))
 
-# Ploting only adjusted reliever salaries
+# Plotting only adjusted reliever salaries
 NN <- ggplot()
 NN +  geom_line(data = Average_reliver_salaries_1985_2016, aes(x = year, y = Scaled_2015_Salary), size = 1, colour = "red") + 
   Julien_theme() + scale_y_continuous(labels = comma, limits = c(0, 4000000)) + 
@@ -428,10 +428,6 @@ v + geom_bar(data = DH_salaries_1985_2016_average, aes(x = Age, y = Scaled_Salar
   geom_segment(aes(x = 31.5, y = 0, xend = 31.5, yend = 11000000), size = 1, colour = "purple") + 
   annotate("Text", label = "Average Age", x = 29.5, y = 10000000, color = "purple", fontface = "bold", size = 3) + 
   labs(caption = "data: baseball reference")
-
-
-
-
   
 # More exploratory analysis
 head(DH_salaries_1985_2016)
@@ -446,8 +442,8 @@ b + geom_bar(data = DH_salaries_1985_2016_average, aes(x = Age, y = WAR), stat =
 DH_salaries_1985_2016_Name <- select(DH_salaries_1985_2016, Name)
 head(DH_salaries_1985_2016_Name)
 
-# Merging them with team_salaries_1985_2016_merged in order to get the careers of every player who played at the DH position
-DH_salaries_1985_2016_with_history  <- semi_join(team_salaries_1985_2016_merged, DH_salaries_1985_2016_Name) 
+# Merging them with team_salaries_1985_2016_9 in order to get the careers of every player who played at the DH position
+DH_salaries_1985_2016_with_history  <- semi_join(team_salaries_1985_2016_9, DH_salaries_1985_2016_Name) 
 head(DH_salaries_1985_2016_with_history)
 tail(DH_salaries_1985_2016_with_history, 50)
 head(DH_salaries_1985_2016)
@@ -499,7 +495,7 @@ DH_salaries_1985_2016_with_history$Name <- as.factor(DH_salaries_1985_2016_with_
 # Exploring alex rodriguez
 subset(DH_salaries_1985_2016_with_history, Name == "Alex Rodriguez")
 
-# Renaming Alex Rodriguez name in 2015  which had improper name type. 
+# Renaming Alex Rodriguez Acquired' in 2015 which had improper name type. 
 DH_salaries_1985_2016_with_history[93,21] <- "Free Agency"
 
 # Grouping the values by Name and Acquired which had a Position of 10 (DH). 
@@ -559,3 +555,4 @@ length(which(DH_position_1985_2016_Acquired_first$Position == 10))
 # Finding the number of players who played DH in last year of acquisition and calculating percentage
 length(which(DH_position_1985_2016_Acquired_last$Position == 10)) 
 (224/305) * 100
+
