@@ -317,7 +317,7 @@ NN <- ggplot()
 NN +  geom_line(data = Average_reliver_salaries_1985_2016, aes(x = year, y = Scaled_2015_Salary), size = 1, colour = "red") + 
   Julien_theme() + scale_y_continuous(labels = comma, limits = c(0, 4000000)) + 
   ylab("Adjusted Salary") + 
-  ggtitle("Reliever salaries are actualy down, when values are adjsuted", subtitle = "Reliever salary adjusted to 2015 values, 1985-2015") + 
+  ggtitle("Reliever salaries are actually down, when values are adjusted", subtitle = "Reliever salary adjusted to 2015 values, 1985-2015") + 
   annotate("Text", label = "Avg RP", x = 1993, y = 3446117, colour = "red", size = 3.5, fontface = "bold") + 
   labs(caption = "data: baseball reference")
 
