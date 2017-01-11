@@ -6,17 +6,23 @@ These are some articles for which I've used R. If you do not see a file above wi
 They are in ascending order. So, "Baseball attendance analysis & Wins in baseball 1970-2017" is my first project, and "Relief Pitcher Velocity" is my latest project.
 
 
-Baseball attendance analysis & Wins in baseball 1970-2017: http://milwaukee.locals.baseballprospectus.com/2016/09/22/brewers-and-miller-park-attendance/
+Baseball attendance analysis & Wins in baseball 1970-2017:
+http://milwaukee.locals.baseballprospectus.com/2016/09/22/brewers-and-miller-park-attendance/
 
-Brewers Difference in PA and WARP 2015-2016: http://milwaukee.locals.baseballprospectus.com/2016/10/13/the-land-of-opportunity/
+Brewers Difference in PA and WARP 2015-2016: 
+http://milwaukee.locals.baseballprospectus.com/2016/10/13/the-land-of-opportunity/
 
-Brewers Players used: http://milwaukee.locals.baseballprospectus.com/2016/10/20/brewers-player-usage-over-the-years/
+Brewers Players used: 
+http://milwaukee.locals.baseballprospectus.com/2016/10/20/brewers-player-usage-over-the-years/
 
-Brewers Acquired Type : http://milwaukee.locals.baseballprospectus.com/2016/11/03/how-the-brewers-are-and-were-constructed/
+Brewers Acquired Type :
+http://milwaukee.locals.baseballprospectus.com/2016/11/03/how-the-brewers-are-and-were-constructed/
 
-Cy Young Winners and True best pitchers: http://www.beyondtheboxscore.com/2016/11/25/13711492/cy-young-rick-porcello-chris-sale-clayton-kershaw-jake-arrieta-bbwaa-vote-history-pwarp-dra
+Cy Young Winners and True best pitchers: 
+http://www.beyondtheboxscore.com/2016/11/25/13711492/cy-young-rick-porcello-chris-sale-clayton-kershaw-jake-arrieta-bbwaa-vote-history-pwarp-dra
 
-Relief Pitcher Velocity: http://www.beyondtheboxscore.com/2016/12/7/13852008/looking-back-at-koji-uehara-s-time-with-the-red-sox
+Relief Pitcher Velocity: 
+http://www.beyondtheboxscore.com/2016/12/7/13852008/looking-back-at-koji-uehara-s-time-with-the-red-sox
 
 
 
