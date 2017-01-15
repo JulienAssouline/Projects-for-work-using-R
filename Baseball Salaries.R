@@ -1,7 +1,7 @@
+
 # In the document, I analyzed and visualized Position players, Pitchers, and Designated hitter salaries and performance. 
 # I did it in somewhat three sections. First position players, second pitchers, and finally DH. 
 # Every new section starts with ###
-# All the data was gathered at baseball reference.
 
 ### Position players
 
@@ -67,7 +67,7 @@ team_salaries_1985_2016_1 <- team_salaries_1985_2016
 
 library(data.table)
 
-# Unlist the list of list 
+#unlist the list of list 
 team_salaries_1985_2016_2 <- unlist(team_salaries_1985_2016_1, recursive = FALSE)
 team_salaries_1985_2016_3 <- rbindlist(team_salaries_1985_2016_2)
 is.data.frame(team_salaries_1985_2016_3)
@@ -77,7 +77,7 @@ head(team_salaries_1985_2016_3)
 team_salaries_1985_2016_3$id <- rep(names(team_salaries_1985_2016_2), sapply(team_salaries_1985_2016_2, nrow))
 head(team_salaries_1985_2016_3)
 
-# Cleaning the id column to only be left with the year values, by seperating columns, and removing ones I don't want. 
+# Cleaning the id column to only be left with the year values, by seperating columns, and rmoving ones I don't want. 
 team_salaries_1985_2016_4 <- team_salaries_1985_2016_3 %>% separate(id, c("id", "wtv", "wtv1", "wtv2", "team", "year"), sep = "/")
 
 head(team_salaries_1985_2016_4)
@@ -118,7 +118,10 @@ team_salaries_1985_2016_6 <- team_salaries_1985_2016_6[team_salaries_1985_2016_6
 team_salaries_1985_2016_6 <- transform(team_salaries_1985_2016_6, year= as.numeric(year))
 
 # Getting average & median league salaries
-Average_League_salaries_1985_2016 <- team_salaries_1985_2016_6 %>% group_by(year) %>% summarise(Average_Salary = mean(Salary), Median_Salary = median(Salary)) %>% as.data.frame()
+Average_League_salaries_1985_2016 <- team_salaries_1985_2016_6 %>% 
+  group_by(year) %>% 
+  summarise(Average_Salary = mean(Salary), Median_Salary = median(Salary)) %>% 
+  as.data.frame()
 
 # Getting rid of all pitchers 
 team_salaries_1985_2016_7 <- team_salaries_1985_2016_6[team_salaries_1985_2016_6$`Pos Summary`!=1,]
@@ -150,7 +153,10 @@ team_salaries_1985_2016_9 <- transform(team_salaries_1985_2016_9, year = as.nume
 
 
 # Getting the average salary by position and year
-Average_position_salary <- team_salaries_1985_2016_9 %>% group_by(Position, year) %>% summarise(Average_Salary = mean(Salary), Average_WAR = mean(WAR)) %>% as.data.frame()
+Average_position_salary <- team_salaries_1985_2016_9 %>% 
+  group_by(Position, year) %>% 
+  summarise(Average_Salary = mean(Salary), Average_WAR = mean(WAR)) %>% 
+  as.data.frame()
 
 Average_position_salary <- Average_position_salary[Average_position_salary$Position!=1,]
 
@@ -165,12 +171,19 @@ Average_League_salaries_1985_2016
 team_salaries_1985_2016_9$Scaled_Salary_2015 <- team_salaries_1985_2016_9$scales * team_salaries_1985_2016_9$Salary
 
 # Summarising the average salary, WAR, Scaled Salary, Median WAR, Median Scaled Salary by position
-Positin_Player_WAR_Salary_1985_2015 <- team_salaries_1985_2016_9 %>% group_by(Position) %>% summarise(Average_salary = mean(Salary), Average_WAR = mean(WAR), Scaled_Salary_2015 = mean(Scaled_Salary_2015), Median_WAR = median(WAR), Median_Scaled_2015_Salary = median(Scaled_Salary_2015)) %>% as.data.frame()
+Positin_Player_WAR_Salary_1985_2015 <- team_salaries_1985_2016_9 %>% 
+  group_by(Position) %>% 
+  summarise(Average_salary = mean(Salary), Average_WAR = mean(WAR), Scaled_Salary_2015 = mean(Scaled_Salary_2015), Median_WAR = median(WAR), Median_Scaled_2015_Salary = median(Scaled_Salary_2015)) %>% 
+  as.data.frame()
 
 head(Positin_Player_WAR_Salary_1985_2015)
 
 # Getting average salaries for position players/hitters
-Average_salaries_hitters_1985_2016 <- team_salaries_1985_2016_7 %>% group_by(year) %>% summarise(Average_Salary = mean(Salary), Median_Salary = median(Salary)) %>% as.data.frame()
+Average_salaries_hitters_1985_2016 <- team_salaries_1985_2016_7 %>% 
+  group_by(year) %>% 
+  summarise(Average_Salary = mean(Salary), Median_Salary = median(Salary)) %>% 
+  as.data.frame()
+
 Average_salaries_hitters_1985_2016
 
 head(Average_League_salaries_1985_2016)
@@ -275,16 +288,33 @@ reliver_salaries_1985_2016[is.na(reliver_salaries_1985_2016)] <- 0
 starters_salaries_1985_2016[is.na(starters_salaries_1985_2016)] <- 0
 
 # Summarising the average salary, WAR, Scaled Salary, Median WAR, Median Scaled Salary, by starters and relievers
-Reliever_WAR_Salary_1985_2015 <- reliver_salaries_1985_2016 %>% group_by(Position) %>% summarise(Average_Salary = mean(Salary), Average_WAR = mean(WAR), Scaled_2015_Salary = mean(Scaled_2015_Salary), Median_WAR = median(WAR), Median_Scaled_2015_Salary = median(Scaled_2015_Salary)) %>% as.data.frame()
+Reliever_WAR_Salary_1985_2015 <- reliver_salaries_1985_2016 %>% 
+  group_by(Position) %>% 
+  summarise(Average_Salary = mean(Salary), Average_WAR = mean(WAR), Scaled_2015_Salary = mean(Scaled_2015_Salary), Median_WAR = median(WAR), Median_Scaled_2015_Salary = median(Scaled_2015_Salary)) %>% 
+  as.data.frame()
+
 head(Reliever_WAR_Salary_1985_2015)
-Starter_WAR_Salary_1985_2015 <- starters_salaries_1985_2016 %>% group_by(Position) %>% summarise(Average_Salary = mean(Salary), Average_WAR = mean(WAR), Scaled_2015_Salary = mean(Scaled_2015_Salary), Median_WAR = median(WAR), Median_Scaled_2015_Salary = median(Scaled_2015_Salary)) %>% as.data.frame() 
+
+Starter_WAR_Salary_1985_2015 <- starters_salaries_1985_2016 %>% 
+  group_by(Position) %>% 
+  summarise(Average_Salary = mean(Salary), Average_WAR = mean(WAR), Scaled_2015_Salary = mean(Scaled_2015_Salary), Median_WAR = median(WAR), Median_Scaled_2015_Salary = median(Scaled_2015_Salary)) %>% 
+  as.data.frame() 
+
 head(Starter_WAR_Salary_1985_2015)   
 
 # Summarising the yearly average salary, WAR, Scaled Salary, Median WAR, Median Scaled Salary, for starters and relievers
-Average_reliver_salaries_1985_2016 <- reliver_salaries_1985_2016 %>% group_by(year) %>% summarise(Average_Salary = mean(Salary), Median_Salary = median(Salary), Average_WAR = mean(WAR), Scaled_2015_Salary = mean(Scaled_2015_Salary)) %>% as.data.frame()  
+Average_reliver_salaries_1985_2016 <- reliver_salaries_1985_2016 %>% 
+  group_by(year) %>% 
+  summarise(Average_Salary = mean(Salary), Median_Salary = median(Salary), Average_WAR = mean(WAR), Scaled_2015_Salary = mean(Scaled_2015_Salary)) %>% 
+  as.data.frame()  
+
 head(Average_reliver_salaries_1985_2016)  
 
-Average_starters_salaries_1985_2016 <- starters_salaries_1985_2016 %>% group_by(year) %>% summarise(Average_Salary = mean(Salary), Median_Salary = median(Salary), Average_WAR = mean(WAR), Scaled_2015_Salary = mean(Scaled_2015_Salary)) %>% as.data.frame()
+Average_starters_salaries_1985_2016 <- starters_salaries_1985_2016 %>% 
+  group_by(year) %>% 
+  summarise(Average_Salary = mean(Salary), Median_Salary = median(Salary), Average_WAR = mean(WAR), Scaled_2015_Salary = mean(Scaled_2015_Salary)) %>% 
+  as.data.frame()
+
 tail(Average_starters_salaries_1985_2016)
 
 head(Average_position_salary)
@@ -319,8 +349,7 @@ NN +  geom_line(data = Average_reliver_salaries_1985_2016, aes(x = year, y = Sca
   ylab("Adjusted Salary") + 
   ggtitle("Reliever salaries are actually down, when values are adjusted", subtitle = "Reliever salary adjusted to 2015 values, 1985-2015") + 
   annotate("Text", label = "Avg RP", x = 1993, y = 3446117, colour = "red", size = 3.5, fontface = "bold") + 
-  labs(caption = "data: baseball reference")
-
+  labs(caption = "data: baseball reference") + xlab("Year")
 
 # Plotting scatter plot of adjusted salaries and WAR by positions
 d + ggplot()
@@ -415,7 +444,11 @@ gg_dh + geom_bar(data = DH_salaries_1985_2016, aes(x = Age, y = Scaled_Salary_20
   scale_y_continuous(labels = comma) 
 
 # Grouping scaled DH salaries, and WAR by age. 
-DH_salaries_1985_2016_average <- DH_salaries_1985_2016 %>% group_by(Age) %>% summarise(Scaled_Salary_2015 = mean(Scaled_Salary_2015), WAR = mean(WAR)) %>% as.data.frame()
+DH_salaries_1985_2016_average <- DH_salaries_1985_2016 %>% 
+  group_by(Age) %>% 
+  summarise(Scaled_Salary_2015 = mean(Scaled_Salary_2015), WAR = mean(WAR)) %>% 
+  as.data.frame()
+
 DH_salaries_1985_2016_average
 
 tail(DH_salaries_1985_2016, n = 200)
@@ -445,10 +478,15 @@ head(DH_salaries_1985_2016_Name)
 
 # Merging them with team_salaries_1985_2016_9 in order to get the careers of every player who played at the DH position
 DH_salaries_1985_2016_with_history  <- semi_join(team_salaries_1985_2016_9, DH_salaries_1985_2016_Name) 
+
 head(DH_salaries_1985_2016_with_history)
+
 tail(DH_salaries_1985_2016_with_history, 50)
+
 head(DH_salaries_1985_2016)
+
 DH_salaries_1985_2016_with_history$Position[DH_salaries_1985_2016_with_history$Position == "NA"] <- 0
+
 DH_salaries_1985_2016_with_history <- DH_salaries_1985_2016_with_history[complete.cases(DH_salaries_1985_2016_with_history[22]),]
 
 
@@ -456,7 +494,11 @@ DH_salaries_1985_2016_with_history <- DH_salaries_1985_2016_with_history[complet
 DH_salaries_1985_2016_without_DH <- DH_salaries_1985_2016_with_history[DH_salaries_1985_2016_with_history$Position!=10,]
 
 # Getting count of every other position played by a DH
-DH_most_common_position <- DH_salaries_1985_2016_without_DH %>% group_by(Position) %>% summarise(count = n()) %>% as.data.frame()
+DH_most_common_position <- DH_salaries_1985_2016_without_DH %>% 
+  group_by(Position) %>% 
+  summarise(count = n()) %>% 
+  as.data.frame()
+
 DH_most_common_position <- DH_most_common_position[complete.cases(DH_most_common_position),]
 
 # Renaming columns
@@ -490,9 +532,11 @@ head(DH_salaries_1985_2016_with_history)
 
 # Cleaning "Name" column by seperating and uniting columns in order to get rid of the *
 DH_salaries_1985_2016_with_history <- DH_salaries_1985_2016_with_history %>% separate(Name, c("Name", "ok"), by = 2)
+
 DH_salaries_1985_2016_with_history <- DH_salaries_1985_2016_with_history %>% unite(Name, Name, ok, sep = " ")
 
 DH_salaries_1985_2016_with_history$Name <- as.factor(DH_salaries_1985_2016_with_history$Name)
+
 # Exploring alex rodriguez
 subset(DH_salaries_1985_2016_with_history, Name == "Alex Rodriguez")
 
@@ -501,7 +545,10 @@ DH_salaries_1985_2016_with_history[93,21] <- "Free Agency"
 
 # Grouping the values by Name and Acquired which had a Position of 10 (DH). 
 # Before I had the whole players career. I only wanted the players acquired type for when he played at least one season of DH
-DH_salaries_1985_2016_Acquired_DH <- DH_salaries_1985_2016_with_history %>% group_by(Name, Acquired) %>% filter(any(Position == 10)) %>% as.data.frame()
+DH_salaries_1985_2016_Acquired_DH <- DH_salaries_1985_2016_with_history %>% 
+  group_by(Name, Acquired) %>% 
+  filter(any(Position == 10)) %>% 
+  as.data.frame()
 
 
 subset(DH_salaries_1985_2016_Acquired_DH, Acquired == "Amateur Free Agent")
@@ -512,10 +559,17 @@ DH_salaries_1985_2016_Acquired_DH[492,21] <- "Amateur Draft"
 DH_salaries_1985_2016_Acquired_DH[493,21] <- "Amateur Draft"
 
 # Count of DH players by acquired type
-DH_salaries_1985_2016_Acquired_Count <- DH_salaries_1985_2016_Acquired_DH %>% group_by(Acquired) %>% summarise(Count = n()) %>% as.data.frame()
+DH_salaries_1985_2016_Acquired_Count <- DH_salaries_1985_2016_Acquired_DH %>% 
+  group_by(Acquired) %>% 
+  summarise(Count = n()) %>% 
+  as.data.frame()
 
 # Summarising mean of the WAR and Scaled Salary by Acquired type
-DH_salaries_1985_2016_Acquired_average <- DH_salaries_1985_2016_Acquired_DH %>% group_by(Acquired) %>% summarise(Scaled_Salary_2015 = mean(Scaled_Salary_2015), WAR = mean(WAR)) %>% as.data.frame()
+DH_salaries_1985_2016_Acquired_average <- DH_salaries_1985_2016_Acquired_DH %>% 
+  group_by(Acquired) %>% 
+  summarise(Scaled_Salary_2015 = mean(Scaled_Salary_2015), WAR = mean(WAR)) %>% 
+  as.data.frame()
+
 head(DH_salaries_1985_2016_Acquired_average)
 
 # Plotting count of DH by acquired type
@@ -541,10 +595,17 @@ PP + geom_point(data = DH_salaries_1985_2016_Acquired_average, aes(x = WAR, y = 
 head(DH_salaries_1985_2016_Acquired_DH) 
 
 # Gouping by Name and Acquired type and selecting the first value
-DH_position_1985_2016_Acquired_first <- DH_salaries_1985_2016_Acquired_DH %>% group_by(Name, Acquired) %>% slice(1) %>% as.data.frame()
+DH_position_1985_2016_Acquired_first <- DH_salaries_1985_2016_Acquired_DH %>% 
+  group_by(Name, Acquired) %>% 
+  slice(1) %>% 
+  as.data.frame()
 
 # Gouping by Name and Acquired type and selecting the last value
-DH_position_1985_2016_Acquired_last <- DH_salaries_1985_2016_Acquired_DH %>% group_by(Name, Acquired) %>% slice(n()) %>% as.data.frame()
+DH_position_1985_2016_Acquired_last <- DH_salaries_1985_2016_Acquired_DH %>% 
+  group_by(Name, Acquired) %>% 
+  slice(n()) %>% 
+  as.data.frame()
+
 head(DH_position_1985_2016_Acquired_first)
 
 # Finding the number of players who played DH in first year of acquisition
@@ -556,4 +617,3 @@ length(which(DH_position_1985_2016_Acquired_first$Position == 10))
 # Finding the number of players who played DH in last year of acquisition and calculating percentage
 length(which(DH_position_1985_2016_Acquired_last$Position == 10)) 
 (224/305) * 100
-
