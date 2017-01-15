@@ -3,7 +3,7 @@ R code I use for projects and articles I write.
 
 These are some articles for which I've used R. If you do not see a file above with a link, then the R code was a personal project of mine. Probably making a chart, or exploring data for fun. 
 
-They are in ascending order. So, "Baseball attendance analysis & Wins in baseball 1970-2017" is my first project, and "Relievers aren’t being overpaid… but designated hitters are: An investigation" is my latest project.
+They are in ascending order. So, "Baseball attendance analysis & Wins in baseball 1970-2017" is my first project, and "Baseball Salaries" is my latest project.
 
 
 Baseball attendance analysis & Wins in baseball 1970-2017:
@@ -24,7 +24,7 @@ http://www.beyondtheboxscore.com/2016/11/25/13711492/cy-young-rick-porcello-chri
 Relief Pitcher Velocity: 
 http://www.beyondtheboxscore.com/2016/12/7/13852008/looking-back-at-koji-uehara-s-time-with-the-red-sox
 
-Relievers aren’t being overpaid… but designated hitters are: An investigation: 
+Baseball Salaries: 
 http://www.beyondtheboxscore.com/2017/1/11/14214912/relievers-overpaid-designated-hitters-salaries-mlb-free-agents
 
 
