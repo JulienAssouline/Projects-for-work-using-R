@@ -3,9 +3,11 @@ library(dplyr)
 library(tidyr)
 
 ### All of the data I got came from the Economic Policy Insitute. Here I'll start by leading it form my excel file 
+
 # and once it's in I selected the columns I needed. 
 # I wanted to first examine the trend of the gender pay gap, with women's salaries as a ratios of men.
 # Fortunetly the data from Economic Policy Insitute is already clean so no need to do a lot of cleaning. 
+
 excel_sheets("Gender Pay Gap US.xlsx")
 
 Pay_gap_trend <- as.data.frame(read_excel("Gender Pay Gap US.xlsx", sheet = "Sheet4")) 
@@ -16,10 +18,12 @@ str(Pay_gap_trend)
 Pay_gap_trend
 
 # I changed one of the columns to numeric, and then added a value, which showed up as NA, but was suppose to be 0.8274
+
 Pay_gap_trend <- transform(Pay_gap_trend, Women = as.numeric(Women)) 
 Pay_gap_trend[37,2] <- 0.8274
 
 # Making the women column into a percentage 
+
 Pay_gap_trend$Women <- Pay_gap_trend$Women * 100
 Pay_gap_trend$Difference <- Pay_gap_trend$Men - Pay_gap_trend$Women
 head(Pay_gap_trend)
@@ -31,6 +35,7 @@ library(scales)
 str(Pay_gap_trend)
 
 # Now, we'll create a graph displaying the trend with women's salaries as a ratios of men.
+
 p <- ggplot()
 p + geom_line(data = Pay_gap_trend, aes(x = Year, y = Women), size = 1, colour = "Purple") + 
   Julien_theme() + 
@@ -73,6 +78,7 @@ Gender_Pay_Gap_education <- as.data.frame(read_excel("Gender Pay Gap US.xlsx", s
 Gender_Pay_Gap_education
 
 # I only wanted to look at 2015, for now, so I subsetted the 2015 data
+
 Gender_Pay_Gap_education_2015 <- subset(Gender_Pay_Gap_education, Date == 2015)
   
  head(Gender_Pay_Gap_education_2015)
@@ -99,6 +105,7 @@ Gender_Pay_Gap_education_2015 <- subset(Gender_Pay_Gap_education, Date == 2015)
  str(Gender_Pay_Gap_education_2015_long)
  
  # Now we can visualize the data, again, creating a dumbbell plot to show the difference.
+ 
 gg <- ggplot()
 gg + geom_dumbbell(data = Gender_Pay_Gap_education_2015_long, aes(x = Wages_Women, xend = Wages_Men, y = reorder(Education, Wages_Men)), colour = "grey", point.colour.r = "firebrick3", point.colour.l = "darkorchid3", point.size.l = 2, point.size.r = 2) + 
      Julien_theme() + xlab("Average Hourly Wages") + ylab("") + 
