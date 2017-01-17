@@ -30,7 +30,7 @@ head(Pay_gap_trend)
 
 library(ggplot2)
 library(ggalt)
-library(scales)
+library(scales) 
 
 str(Pay_gap_trend)
 
