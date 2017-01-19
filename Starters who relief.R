@@ -70,7 +70,7 @@ library(ggplot2)
 p <- ggplot(Percentage_of_Sarters_IP_Relief, aes(x = YEAR, y = Count))
 p + geom_line(colour = "Purple", size = 1) + Julien_theme() +
   ggtitle("Fewer starters are pitching innings in relief", subtitle = "Percentage of starters who threw at least one inning in relief, 1967-2016") + 
-  labs(caption = "Data: Baseball-Reference") + ylab("") + 
+  labs(caption = "Data: Baseball Prospectus") + ylab("") + 
   scale_y_continuous(limits = c(0, 100), labels = c(0,25,50,75,"100%"))
 
 # Then I plotted the average number of innings pitched in relief
@@ -78,7 +78,7 @@ p + geom_line(colour = "Purple", size = 1) + Julien_theme() +
 q <- ggplot(Average_starters_IP_Relief, aes(x = YEAR, y = IP_Relief_Avg))
 q + geom_line(colour = "blue", size = 1) + Julien_theme() + 
   ggtitle("On Average, starters are pitching fewer innings in relief", "Average innings pitched by starters in relief, 1967-2016") + 
-  scale_y_continuous(limits = c(0, 8.5)) + ylab("") + labs(caption = "Data: Baseball-Reference")
+  scale_y_continuous(limits = c(0, 8.5)) + ylab("") + labs(caption = "Data: Baseball Prospectus")
 
 # After examining the trend, I wanted to examine the relationship between the innings pitched at relief and starter, and examine the most extreme cases. 
 
@@ -113,7 +113,7 @@ ff + geom_point(data = Starters_1967_2016, aes(x = IP.Start, y = IP.Relief), col
   annotate("Text", label = "Ken Dixon", x = 105.7, y = 57.8, colour = "violetred3", size = 3, fontface = "bold") +
   xlab("IP as starter") + ylab("IP as reliever") + 
   ggtitle("The starters who threw the most innings in relief", subtitle = "Starters innings pitched in relief, and as a starter, 1967-2016") + 
-  labs(caption = "Data: Baseball-Reference")
+  labs(caption = "Data: Baseball Prospectus")
   
  
 # Next I wanted to look at the starters who threw the most in relied for just 2016. 
@@ -152,7 +152,7 @@ vv + geom_point(data = Starters_2016, aes(x = IP.Start, y = IP.Relief), colour =
   Julien_theme() + 
   ylab("IP as Reliever") + xlab("IP as Starter") + 
   ggtitle("Which starters threw the most innings in relief?", subtitle = "Starters innings pitched in relief, and as starter, 2016") + 
-  labs(caption = "Data: Baseball-Reference")
+  labs(caption = "Data: Baseball Prospectus")
   
   
 # Finally I wanted to examine which starters threw 200 or more innings and still pitched at least one inning in relief. 
@@ -208,7 +208,7 @@ Count_Starters_1967_2016_200_1_Percentage
 pp <- ggplot(Count_Starters_1967_2016_200_1_Percentage, aes(x = YEAR, y = Count))
 pp + geom_line(colour = "red", size = 1) + Julien_theme() +
   ggtitle("Starters who pitch at least 200 innings don't pitch in relief, anymore", subtitle = "Percentage of starters who threw at least 200 innings and one inning in relief, 1967-2016") + 
-  labs(caption = "Data: Baseball-Reference") + ylab("") + 
+  labs(caption = "Data: Baseball Prospectus") + ylab("") + 
   scale_y_continuous(limits = c(0, 100), labels = c(0,25,50,75,"100%"))
 
 
