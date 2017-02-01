@@ -1,8 +1,11 @@
+library(readxl)
 library(dplyr)
 library(tidyr)
 
 # Reading in BP Career pitcher data
-BP_DRA_1951_2016 <- read.csv(file.choose())
+excel_sheets("BP Pitcher Career .xlsx")
+BP_DRA_1951_2016 <- as.data.frame(read_excel("BP Pitcher Career .xlsx", sheet = "bpstats_02-01-2017"))
+
 head(BP_DRA_1951_2016)
 
 # Filter data so that each pitcher has pitched at least 900 innings in his career
