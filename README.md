@@ -32,5 +32,5 @@ Starters who relief:
 http://www.beyondtheboxscore.com/2017/1/18/14293766/starter-reliever-swingman-innings-trend-clay-buchholz-tanner-roark
 
 
-BP Pitcher career.R: http://www.beyondtheboxscore.com/2017/2/2/14450352/starters-relievers-hall-of-fame-warp-dra
+BP Pitcher career: http://www.beyondtheboxscore.com/2017/2/2/14450352/starters-relievers-hall-of-fame-warp-dra
 
