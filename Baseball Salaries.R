@@ -584,7 +584,7 @@ GG <- ggplot()
 GG + geom_bar(data = DH_salaries_1985_2016_Acquired_average, aes(x = reorder(Acquired, Scaled_Salary_2015), y = Scaled_Salary_2015), stat = "Identity", colour = "deeppink4", fill = "deeppink4") + 
   coord_flip() + Julien_theme() + 
   xlab("Acquired Type") + ylab("Adjusted Average Salary") + scale_y_continuous(labels = comma) + 
-  ggtitle("It's not clear that general managers are overpaying free agents who\ngo non to become designated hitters", subtitle = "Acquired type for players who played at least one season at DH and\naverage adjusted salary, 1985-2015") + 
+  ggtitle("It's not clear that general managers are overpaying free agents who\ngo on to become designated hitters", subtitle = "Acquired type for players who played at least one season at DH and\naverage adjusted salary, 1985-2015") + 
   labs(caption = "data: baseball reference")
   
 # Scatter plot of relationship between War and DH adjusted salary
