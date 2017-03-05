@@ -3,7 +3,7 @@ library(dplyr)
 library(tidyr)
 
 ### For this project, I wanted to analyze the starting pitchers who pitched in relief. 
-# The data was easy to get, because, well I already had a built in database of Baseball Prospectus' data on pitchers datin back to 1967
+# The data was easy to get, because I already had a built in database of Baseball Prospectus' data on pitchers datin back to 1967
 # So, thats the data I used here. For anyone who would like to obtain the data, it can be collected at the Baseball Prospectus web site. 
 
 head(BP_Pitcher_1967_2016)
