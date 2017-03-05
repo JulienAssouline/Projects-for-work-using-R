@@ -7,7 +7,7 @@ library(tidyr)
 # So, thats the data I used here. For anyone who would like to obtain the data, it can be collected at the Baseball Prospectus website. 
 
 head(BP_Pitcher_1967_2016)
-# Becaue we I wanted to look at starting pitcher, first, I needed to define a starting pitcher. 
+# Becaue I wanted to look at starting pitchers, first, I needed to define a starting pitcher. 
 # Which I defined as a pitcher who made more than 50% of his plate appearances as a starter (GS/G > 50)
 # I also set a games started limit of 3. 
 
@@ -53,7 +53,7 @@ Starters_count <- Starters_1967_2016 %>%
 
 Percentage_of_Sarters_IP_Relief <-  (Starters_Pitched_relief_count / Starters_count) * 100 
 
-# The method I used got rid of all of my year, so I added the years, and got rid of the unneeded columns
+# The method I used get rid of all of my year, so I added the years, and got rid of the unneeded columns
 
 Percentage_of_Sarters_IP_Relief$YEAR <- 1967:2016
 
