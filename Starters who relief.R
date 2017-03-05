@@ -33,7 +33,7 @@ Starters_1967_2016_IP_Relief <- Starters_1967_2016[Starters_1967_2016$IP.Relief 
 head(Starters_1967_2016_IP_Relief)
 tail(Starters_1967_2016_IP_Relief)
 
-# Next I wasnted to find the proportion of pitchers who pitched at least one inning in relief, by year. 
+# Next I wanted to find the proportion of pitchers who pitched at least one inning in relief, by year. 
 # So first I needed to get the count of every starter who pitched at least one inning in the pen by year. 
 
 Starters_Pitched_relief_count <- Starters_1967_2016 %>% 
