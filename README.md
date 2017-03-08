@@ -3,8 +3,7 @@ R code I use for projects and articles I write.
 
 These are some articles for which I've used R. If you do not see a file above with a link, then the R code was a personal project of mine. Probably making a chart, or exploring data for fun. 
 
-They are in ascending order. So, "Baseball attendance analysis & Wins in baseball 1970-2017" is my first project, and "
-Starters who relief" is my latest project.
+They are in ascending order. So, "Baseball attendance analysis & Wins in baseball 1970-2017" is my first project, and "BP Pitcher career" is my latest project.
 
 
 Baseball attendance analysis & Wins in baseball 1970-2017:
