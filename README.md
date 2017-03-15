@@ -3,7 +3,7 @@ R code I use for projects and articles I write.
 
 These are some articles for which I've used R. If you do not see a file above with a link, then the R code was a personal project of mine. Probably making a chart, or exploring data for fun. 
 
-They are in ascending order. So, "Baseball attendance analysis & Wins in baseball 1970-2017" is my first project, and "BP Pitcher career" is my latest project.
+They are in ascending order. So, "Baseball attendance analysis & Wins in baseball 1970-2017" is my first project, and "Veterans in Baseball" is my latest project.
 
 
 Baseball attendance analysis & Wins in baseball 1970-2017:
@@ -32,4 +32,6 @@ http://www.beyondtheboxscore.com/2017/1/18/14293766/starter-reliever-swingman-in
 
 
 BP Pitcher career: http://www.beyondtheboxscore.com/2017/2/2/14450352/starters-relievers-hall-of-fame-warp-dra
+
+Veterans in Baseball: http://www.beyondtheboxscore.com/2017/3/15/14918098/mike-trout-angels-veteran-age-playing-time-mvp
 
