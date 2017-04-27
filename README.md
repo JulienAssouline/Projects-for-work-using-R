@@ -3,7 +3,7 @@ R code I use for projects and articles I write.
 
 These are some articles for which I've used R. If you do not see a file above with a link, then the R code was a personal project of mine. Probably making a chart, or exploring data for fun. 
 
-They are in ascending order. So, "Baseball attendance analysis & Wins in baseball 1970-2017" is my first project, and "Height in baseball" is my latest project.
+They are in ascending order. So, "Baseball attendance analysis & Wins in baseball 1970-2017" is my first project, and "Hitters in April" is my latest project.
 
 
 Baseball attendance analysis & Wins in baseball 1970-2017:
@@ -37,3 +37,4 @@ Veterans in Baseball: http://www.beyondtheboxscore.com/2017/3/15/14918098/mike-t
 
 Height in Baseball: http://www.beyondtheboxscore.com/2017/3/28/15084346/jose-altuve-so-short-but-also-outstanding-david-eckstein-can-eat-it
 
+Hitters in April: http://www.beyondtheboxscore.com/2017/4/25/15413720/eric-thames-brewers-april-context-all-articles-are-secretly-about-barry-bonds-if-you-look-closely
